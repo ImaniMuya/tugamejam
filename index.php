@@ -15,14 +15,14 @@
       <img src="images/slideshow/secondplace.jpg"/>
       <img src="images/slideshow/thirdplace.jpg"/>
     </div -->
-    <span class="heading"><strong>GAME JAM: FALL 2019</strong></span>
-    <span class="detailsheading">Oct 31 - Nov 2</span>
+    <span class="heading"><strong>GAME JAM: SPRING 2020</strong></span>
+    <span class="detailsheading">March 12 - 14</span>
     <?php 
-        if($isloggedin){
-          print "<span class='detailsheading' ><a href='teammembers'>Go to team page</a></span>";
-        } else {
-          print "<span class='detailsheading' ><a href='register'>Register Your Team!</a></span>";
-        }
+        // if($isloggedin){
+        //   print "<span class='detailsheading' ><a href='teammembers'>Go to team page</a></span>";
+        // } else {
+        //   print "<span class='detailsheading' ><a href='register'>Register Your Team!</a></span>";
+        // }
       ?>    
     </div>
     <?php include("carousel.php")?>
