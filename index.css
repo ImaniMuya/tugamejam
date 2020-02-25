@@ -3,13 +3,6 @@
   --seccolor:#FFA300;
   --tercolor:#FFFFF8;
   --quadcolor: #4F4A41;
-  /* --primcolor: #17252A;
-  --seccolor:#3AAFA9;
-  --tercolor:#DEF2F1;
-  --quadcolor: #4F4A41; */
-  /* find orange and blue again  #1D2B53
-#FFA300
-#FFF1E8*/
 }
 
 body {
@@ -47,7 +40,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: inherit;
   width: 100%;
   background-color: var(--seccolor);
   opacity: 1;
@@ -96,6 +89,10 @@ a:hover::after {
 
 .blue{
   color: var(--primcolor);
+}
+
+.white{
+  color: white;
 }
 
 textarea {
@@ -398,9 +395,20 @@ input {
 }
 
 .winnerpic {
-  height: 100%;
-  width: auto;
-  padding-left: 2%;
+  height: 300px;
+  width: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* padding-left: 2%; */
+}
+
+.standings {
+  /* color: white; */
+  /* background-color: var(--tercolor); */
+  margin: 3%;
+  width: 100%;
+  padding: 3%;
 }
 
 .s30 {
@@ -532,22 +540,15 @@ td > a {
   -webkit-user-select: none;
   user-select: none;
 }
-/* 
-#slideshow {
-  height: 100%;
-  opacity: 0.15;
-  position: absolute;
-  z-index: 5;
-} */
 
 .submimg {
   max-width: 200px;
   height: auto;
 }
 
-img {
+/* img {
   max-width: 200px;
-}
+} */
 
 label.filechooser {
   cursor: pointer;

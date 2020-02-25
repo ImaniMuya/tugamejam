@@ -1,5 +1,11 @@
+<?php 
+$db = 'sqlite:../../dbs/f2019.db';
+$css = '../../index.css';
+$nav = '../../nav.php';
+
+?>
 <?php
-$conn = new PDO('sqlite:../../test.db');
+$conn = new PDO($db);
 // include("../checklogin.php");
 
 $sql = "SELECT team_id, name
@@ -100,12 +106,12 @@ function getSubmissionCard($teamId, $teamQuestions) {
 <html>
   <head>
       <title>Game Jam</title>
-      <link rel = "stylesheet" type = "text/css" href = "../index.css" />
-      <link rel = "stylesheet" type = "text/css" href = "carasoule.css" />
+      <link rel = "stylesheet" type = "text/css" href = "../../index.css" />
+      <!-- <link rel = "stylesheet" type = "text/css" href = "carasoule.css" /> -->
       <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     </head>
   <body>
-    <?php include("../nav.php"); ?>
+    <?php include($nav); ?>
     <div class="header flex_col">
       <span class="heading"><strong>GAME JAM: FALL 2019</strong></span>
       <!-- <span class="detailsheading">OCT 31 - NOV 2.</span> -->
@@ -123,7 +129,6 @@ function getSubmissionCard($teamId, $teamQuestions) {
         }
       ?>
     </div>
-    <?php include("img-slider.php"); ?>
   </body>
 </html>
 

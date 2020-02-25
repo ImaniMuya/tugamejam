@@ -6,7 +6,7 @@
       </div>
     </div>
   <div class="navlinkcont">
-    <span class="navlinks" class="openbracket"><a href="/~gamejamdev/">Home</a></span>
+    <span class="navlinks" class="openbracket"><a href="/~gamejamdev/wip">Home</a></span>
     <?php 
     if($isloggedin) {
       print "<span class='navlinks' class='openbracket'><a href='/~gamejamdev/teammembers'>My Team</a></span>";
@@ -15,11 +15,9 @@
     //   print "<span class='navlinks' class='openbracket'><a href='/~gamejamdev/register'>Register</a></span>";
     // }
     ?>
-    <!-- <span class="navlinks"><a href="https://gamejam.cse.taylor.edu/rules.php">Rules</a></span> -->
-    <span class="navlinks"><a href="/~gamejamdev/rules">Rules</a></span>
-    <!-- <span class="navlinks"><a href="https://gamejam.cse.taylor.edu/resources.php">Resources</a></span> -->
-    <span class="navlinks"><a href="/~gamejamdev/resources">Resources</a></span>
-    <span class="navlinks"><a href="/~gamejamdev/events/f2019.php">F2019</a></span>
+    <span class="navlinks"><a href="/~gamejamdev/wip/rules">Rules</a></span>
+    <span class="navlinks"><a href="/~gamejamdev/wip/resources">Resources</a></span>
+    <span class="navlinks"><a href="/~gamejamdev/wip/events/f2019/">F2019</a></span>
     <!-- <div id=navdropdown class="navlinks"><a>Past Events</a>
       <div class="navdropdowncontent"><a href="/~gamejamdev/events/event_s2019.php">S2019</a></div>
       <div class="navdropdowncontent"><a>F2018</a></div>

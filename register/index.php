@@ -1,6 +1,6 @@
 <!-- Register -->
 <?php
-$conn = new PDO('sqlite:../../test.db');
+$conn = new PDO('sqlite:../dbs/f2019.db');
 
 include('../timecodes.php');
 if (getGameState()== 0) {
