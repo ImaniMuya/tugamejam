@@ -8,12 +8,13 @@
   <div class="navlinkcont">
     <span class="navlinks" class="openbracket"><a href="/~gamejamdev/wip">Home</a></span>
     <?php 
+    // make case with time stamp
     if($isloggedin) {
       print "<span class='navlinks' class='openbracket'><a href='/~gamejamdev/teammembers'>My Team</a></span>";
     } 
-    // else {
-    //   print "<span class='navlinks' class='openbracket'><a href='/~gamejamdev/register'>Register</a></span>";
-    // }
+    else {
+      print "<span class='navlinks' class='openbracket'><a href='/~gamejamdev/register'>Register</a></span>";
+    }
     ?>
     <span class="navlinks"><a href="/~gamejamdev/wip/rules">Rules</a></span>
     <span class="navlinks"><a href="/~gamejamdev/wip/resources">Resources</a></span>

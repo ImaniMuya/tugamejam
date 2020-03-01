@@ -1,6 +1,9 @@
+<?php $dbs = 'sqlite:../dbs/s2020.db'?>
+
 <?php
 //should have $conn already.
-if (!$conn) $conn = new PDO('sqlite:../test.db'); //don't rely on this
+
+if (!$conn) $conn = new PDO($dbs); //don't rely on this
 
 $isloggedin = false;
 if(isset($_COOKIE['team'])){ 

@@ -1,5 +1,7 @@
+<?php $dbs = 'sqlite:../dbs/s2020.db'?>
+
 <?php 
-$conn = new PDO('sqlite:../test.db');
+$conn = new PDO($dbs);
 
 $team = $_GET['team'];
 $secret = $_GET['secret'];
@@ -16,10 +18,10 @@ if ($validteam) {
   $expir = time()+172800;
   setcookie('team',$team,$expir) or die('unable to create cookie');
   setcookie('secret',$secret,$expir) or die('unable to create cookie');
-  // print_r($_COOKIE["team"]);
-  // print_r($_COOKIE["secret"]);
+  print_r($_COOKIE["team"]);
+  print_r($_COOKIE["secret"]);
 }
 
-header("Location: http://cse.taylor.edu/~gamejamdev/teammembers");
+// header("Location: http://cse.taylor.edu/~gamejamdev/wip/teammembers");
 
 ?>

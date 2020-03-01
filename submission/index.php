@@ -31,6 +31,7 @@ if ($_POST) {
       die("unsupported file extension: " . $fileExt . " file: " . $file["name"]); // TODO: replace with toast
       break;
     }
+
 // TODO: change to local uploads folder
     $target_dir = "../uploads/";
     $target_file = $target_dir .$teamId."-".basename($file["name"]);

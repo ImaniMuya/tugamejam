@@ -1,6 +1,8 @@
 <!-- Register -->
+<?php $dbs = 'sqlite:../dbs/s2020.db'?>
+
 <?php
-$conn = new PDO('sqlite:../dbs/f2019.db');
+$conn = new PDO($dbs);
 
 include('../timecodes.php');
 if (getGameState()== 0) {
@@ -35,7 +37,7 @@ if ($_POST) {
       $sql->bindParam(':person_name', $leaderName);
       $sql->bindParam(':email', $_POST['email']);
       
-      $msg = "You just joined team: ".$teamName."! click this link! https://cse.taylor.edu/~gamejamdev/login.php?team=".$team_id."&secret=".$secret;
+      $msg = "You just joined team: ".$teamName."! click this link! https://cse.taylor.edu/~gamejamdev/wip/login.php?team=".$team_id."&secret=".$secret;
       $msg = wordwrap($msg,70);
       mail($_POST['email'],"GAME JAM",$msg);
       

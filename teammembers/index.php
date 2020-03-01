@@ -1,6 +1,9 @@
 <!-- Team Members -->
+<?php $dbs = 'sqlite:../dbs/s2020.db'?>
+
 <?php
-$conn = new PDO('sqlite:../../test.db');
+$conn = new PDO($dbs);
+
 include("../checklogin.php");
 
 if ($_POST) {
