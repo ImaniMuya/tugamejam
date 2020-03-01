@@ -18,7 +18,8 @@
     ?>
     <span class="navlinks"><a href="/~gamejamdev/wip/rules">Rules</a></span>
     <span class="navlinks"><a href="/~gamejamdev/wip/resources">Resources</a></span>
-    <span class="navlinks"><a href="/~gamejamdev/wip/events/f2019/">F2019</a></span>
+    <span class="navlinks"><a href="/~gamejamdev/wip/events/s2020">S2020</a></span>
+    <span class="navlinks"><a href="/~gamejamdev/wip/events/f2019/static.html">F2019</a></span>
     <!-- <div id=navdropdown class="navlinks"><a>Past Events</a>
       <div class="navdropdowncontent"><a href="/~gamejamdev/events/event_s2019.php">S2019</a></div>
       <div class="navdropdowncontent"><a>F2018</a></div>

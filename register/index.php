@@ -1,5 +1,5 @@
 <!-- Register -->
-<?php $dbs = 'sqlite:../dbs/s2020.db'?>
+<?php include("include.php")?>
 
 <?php
 $conn = new PDO($dbs);
