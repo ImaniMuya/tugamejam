@@ -1,2 +1,2 @@
 
-<?php header("Location: /~gamejamdev/"); ?>
+<?php header("Location: /~gamejamdev/wip"); ?>

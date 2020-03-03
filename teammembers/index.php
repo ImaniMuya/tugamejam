@@ -1,10 +1,10 @@
 <!-- Team Members -->
-<?php $dbs = 'sqlite:../dbs/s2020.db'?>
+<?php include("../include.php"); ?>
 
 <?php
 $conn = new PDO($dbs);
 
-include("../checklogin.php");
+include("../checklogin/index.php");
 
 if ($_POST) {
   if ($_POST["memberId"]) { //update member

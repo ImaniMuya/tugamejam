@@ -1,7 +1,7 @@
 <!-- Home -->
-<?php include("checklogin.php")?>
-<?php include("timecodes.php")?>
-<?php $time = date("Y.m.d H:i:s")?>
+<?php include("timecodes.php"); ?>
+<?php include("../checklogin/index.php"); ?>
+
 
 <html>
   <head>
@@ -51,7 +51,6 @@
 <script>
  function togglenav() {
    document.getElementById('navcol').classList.toggle('tucked');
-   document.getElementById('navicon').classList.toggle('tucked')
-                        
+   document.getElementById('navicon').classList.toggle('tucked')                        
 }
 </script>

@@ -1,5 +1,5 @@
 <!-- Register -->
-<?php include("include.php")?>
+<?php include("../include.php"); ?>
 
 <?php
 $conn = new PDO($dbs);

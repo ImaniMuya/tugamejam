@@ -1,9 +1,9 @@
-<?php $dbs = 'sqlite:../dbs/s2020.db'?>
+<?php include("../include.php"); ?>
 
 <?php
 //should have $conn already.
 
-if (!$conn) $conn = new PDO($dbs); //don't rely on this
+// if (!$conn) $conn = new PDO('sqlite:../dbs/s2020.db'); //don't rely on this
 
 $isloggedin = false;
 if(isset($_COOKIE['team'])){ 
@@ -15,6 +15,7 @@ if(isset($_COOKIE['team'])){
   $stmt->execute();
 
   $team = $stmt->fetch(PDO::FETCH_ASSOC);
+
   if ($team) {
     $isloggedin = true;
     $teamName = $team["name"];
@@ -25,7 +26,7 @@ if(isset($_COOKIE['team'])){
     // setcookie('team', '', time() - 3600);
     // setcookie('secret', '', time() - 3600);
     
-    //header("Location: /~gamejamdev/");
+    // header("Location: /~gamejamdev/wip");
     
     // toast message?
   }
