@@ -37,7 +37,7 @@ if ($_POST) {
       $sql->bindParam(':person_name', $leaderName);
       $sql->bindParam(':email', $_POST['email']);
       
-      $msg = "You just joined team: ".$teamName."! click this link! https://cse.taylor.edu/~gamejamdev/wip/login.php?team=".$team_id."&secret=".$secret;
+      $msg = "You just joined team: ".$teamName."! click this link! https://cse.taylor.edu/~gamejamdev/wip/login?team=".$team_id."&secret=".$secret;
       $msg = wordwrap($msg,70);
       mail($_POST['email'],"GAME JAM",$msg);
       

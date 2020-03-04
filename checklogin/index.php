@@ -1,11 +1,15 @@
-<?php include("../include.php"); ?>
+<?php 
+print "checklogin begin";
+?>
 
 <?php
 //should have $conn already.
-
-// if (!$conn) $conn = new PDO('sqlite:../dbs/s2020.db'); //don't rely on this
+// if (!$conn) $conn = new PDO($dbs); //don't rely on this
 
 $isloggedin = false;
+var_dump($conn);
+print_r($_COOKIE);
+
 if(isset($_COOKIE['team'])){ 
   $teamId = $_COOKIE['team'];
   $secret = $_COOKIE['secret'];
@@ -18,6 +22,7 @@ if(isset($_COOKIE['team'])){
 
   if ($team) {
     $isloggedin = true;
+    print "mow we loggedin? $isloggedin";
     $teamName = $team["name"];
     $teamId = $team["team_id"];
     $secret = $team["the_secret"];
@@ -30,7 +35,6 @@ if(isset($_COOKIE['team'])){
     
     // toast message?
   }
-  // var_dump($check);
 }
 
 ?>
