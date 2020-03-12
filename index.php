@@ -1,7 +1,7 @@
 <!-- Home -->
 <?php include("timecodes.php"); ?>
+<?php $conn = new PDO('sqlite:dbs/s2020.db'); //special because of placement on site?> 
 <?php include("checklogin/index.php"); ?>
-
 
 
 <html>
@@ -42,7 +42,6 @@
             print "<div class='white'>click here to see the full event</div>";
             print "<br/>";
             print "</div>";
-  
         }
       ?>  
     </div>
@@ -52,6 +51,6 @@
 <script>
  function togglenav() {
    document.getElementById('navcol').classList.toggle('tucked');
-   document.getElementById('navicon').classList.toggle('tucked')                        
+   document.getElementById('navicon').classList.toggle('tucked');
 }
 </script>

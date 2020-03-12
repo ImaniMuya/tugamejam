@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../include.php");
-$conn = new PDO($dbs);
+// $conn = new PDO($dbs);
 include("../checklogin.php");
 
 if ($_POST) {

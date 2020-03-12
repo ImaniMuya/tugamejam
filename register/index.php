@@ -2,7 +2,7 @@
 <?php include("../include.php"); ?>
 
 <?php
-$conn = new PDO($dbs);
+// $conn = new PDO($dbs);
 
 include('../timecodes.php');
 if (getGameState()== 0) {

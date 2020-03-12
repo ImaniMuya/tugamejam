@@ -4,8 +4,10 @@
 //should have $conn already.
 // if (!$conn) $conn = new PDO($dbs); //don't rely on this
 
+
 $isloggedin = false;
-// print_r($_COOKIE);
+print_r($_COOKIE);
+var_dump($conn);
 
 if(isset($_COOKIE['team'])){ 
   $teamId = $_COOKIE['team'];
@@ -19,6 +21,7 @@ if(isset($_COOKIE['team'])){
 
   if ($team) {
     $isloggedin = true;
+    print "we logged in";
 
     $teamName = $team["name"];
     $teamId = $team["team_id"];

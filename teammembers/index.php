@@ -3,7 +3,7 @@
 
 <?php
 
-$conn = new PDO($dbs);
+// $conn = new PDO($dbs);
 include("../checklogin/index.php");
 
 if ($_POST) {
