@@ -1,11 +1,14 @@
 <!-- Vote -->
 <?php 
-$conn = new PDO('sqlite:../../test.db');
+// $conn = new PDO('sqlite:../../test.db');
+include("../include.php");
 include("../checklogin.php");
 
 include('../timecodes.php');
+session_start();
 if (getGameState()!= 2) {
-  header("Location: https://gamejam.cse.taylor.edu");
+  $_SESSION["snackbar"] = "Theme voting has not begun. Voting starts at $tsVote.";
+  header("Location: /~gamejamdev/wip");
 }
 
 if ($_POST) {

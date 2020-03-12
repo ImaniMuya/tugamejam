@@ -1,7 +1,7 @@
 <?php
 $themecount = 5;
 
-$conn = new PDO('sqlite:../test.db');
+$conn = new PDO('sqlite:./dbs/s2020.db');
 
 if ($_POST) {
   for ($i = 1; $i <= $themecount; $i++) {

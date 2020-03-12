@@ -63,12 +63,12 @@ $members = $stmt->fetchAll();
   include("../snackbar.php");  
   ?>
 <div class="header flex_col">
-  <span class="heading"><strong>GAME JAM: Fall 2019</strong></span>
+  <span class="heading"><strong>GAME&nbsp;JAM: SPRING&nbsp;2020</strong></span>
   <span class="detailsheading">Welcome Team <?php print $teamName?></span>
 </div>
 
-<!-- <div class="right-align"><a href="/~gamejamdev/vote" class="blue">Vote</a></div> -->
-<div class="right-align"><a href="/~gamejamdev/wip/submission" class="blue">Submission</a></div>
+<div class="team-page-link"><a href="/~gamejamdev/wip/vote" class="blue">Theme Voting</a></div>
+<div class="team-page-link"><a href="/~gamejamdev/wip/submission" class="blue">Submission</a></div>
 <div class="flex_col">
   <form method="POST" id="memberForm" class="teamregistration flex_col">
     <div class="formheader flex_col">Team Members</div>
