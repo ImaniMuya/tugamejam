@@ -2,6 +2,7 @@
 session_start();
 include("../include.php");
 include("../checklogin.php");
+$upload_dir = '../events/s2020/uploads/';
 
 if (!$isloggedin) {
   $_SESSION["snackbar"] = "Please log in and try that again.";
@@ -10,8 +11,8 @@ if (!$isloggedin) {
 
 if ($_POST) {
   foreach($_POST as $qid => $ans) {
-    // haven't tested
-    $ans = filter_input(INPUT_POST, $ans, FILTER_SANITIZE_STRING);
+    // // haven't tested
+    // $ans = filter_input(INPUT_POST, $ans, FILTER_SANITIZE_STRING);
     $sql = $conn->prepare("INSERT OR REPLACE INTO 
                            subm_answers(answer, question_id, team_id)
                            VALUES(:answer, :question_id, :team_id)");
@@ -33,12 +34,13 @@ if ($_POST) {
     $fileExt = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
     $allowedExtensions = array("zip","png","jpg","gif");
     if (!in_array($fileExt, $allowedExtensions)) {
-      die("unsupported file extension: " . $fileExt . " file: " . $file["name"]); // TODO: replace with toast
+      // die("unsupported file extension: " . $fileExt . " file: " . $file["name"]); // TODO: replace with toast
+      $_SESSION["snackbar"] = "unsupported file extension: " . $fileExt . " file: " . $file["name"];
+
       break;
     }
 
-// TODO: change to local uploads folder
-    $target_dir = "../uploads/";
+    $target_dir = $upload_dir;
     $target_file = $target_dir .$teamId."-".basename($file["name"]);
     if (move_uploaded_file($file["tmp_name"], $target_file)) {
       // file uploaded successfully
@@ -61,7 +63,7 @@ if ($_POST) {
                            subm_answers(answer, question_id, team_id)
                            VALUES(:answer, :question_id, :team_id)");
     $sql->bindParam(':question_id', $qid);
-    $sql->bindParam(':answer', $target_file); //TODO: maybe don't store with target_dir
+    $sql->bindParam(':answer', basename($target_file)); //TODO: maybe don't store with target_dir
     $sql->bindParam(':team_id', $teamId);
     if ($sql->execute()) {
       //files uploaded
@@ -131,7 +133,8 @@ include("../nav.php");
             case "image":
               $filebn = pathinfo($answer, PATHINFO_BASENAME);
               if ($filebn) {
-                print "<label for='file-$id' id='file-$id-label' class='filechooser'><img class='submimg' src='$answer'></img></label>";
+                $imgsrc = $upload_dir . $answer;
+                print "<label for='file-$id' id='file-$id-label' class='filechooser'><img class='submimg' src='$imgsrc'></img></label>";
                 print "<input type='file' name='$id' id='file-$id' hidden onchange='updateLabel(\"file-$id-label\", this)' maxlength='500'>";
               } else {
                 print "<input type='file' name='$id' id='file-$id' maxlength='500'>";
@@ -144,7 +147,7 @@ include("../nav.php");
           print "</td>";
           print "</tr>";
         }
-      ?>  
+      ?>
     </table>
     <input type="submit">
   </form>

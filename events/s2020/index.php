@@ -3,8 +3,8 @@ $db = 'sqlite:../../dbs/s2020.db';
 $css = '../../index.css';
 $nav = '../../nav.php';
 
-?>
-<?php
+$upload_dir = "./uploads/";
+
 $conn = new PDO($db);
 // include("../checklogin.php");
 
@@ -29,20 +29,19 @@ $stmt->execute();
 $members = $stmt->fetchAll(PDO::FETCH_GROUP);
 
 function getSubmissionCard($teamId, $teamQuestions) {
-  global $teams, $members;
+  global $teams, $members, $upload_dir;
   $output = "";
   $tname = $teams[$teamId][0];
   $imgsrc = "";
   foreach ($teamQuestions as $i => $question) { //for finding the first image
     $type = $question["question_type"];
     if ($type == "image") {
-      $imgsrc = $question["answer"];
+      $imgsrc = $upload_dir . $question["answer"];
       unset($teamQuestions[$i]);
       break;
     }
   }
 
-  
   $output .= "<div class='teamcard flex_center'>";
   if ($imgsrc) $output.="<div><img src='$imgsrc' class='submimg'></div>";
   else $output.="<img src='tempsquare.jpg'>";
@@ -63,15 +62,23 @@ function getSubmissionCard($teamId, $teamQuestions) {
       } else if ($type == "image") {
         // maybe put in carousel
         // $answer = "<img src='$answer' />";
+
+        // put in link for now
+        $imgsrc = $upload_dir . $answer;
+        $answer = "<a href='$imgsrc' target='_blank'>link</a>";
+      } 
+      //otherwise "normal" text
+      else if ($qname == "Game URL") {
+          $answer = "<a href='$answer' target='_blank'>link</a>";
+      } else {
+        $answer = htmlspecialchars($answer);
       }
-      if ($qname == "Game URL") {
-        $answer = "<a href='$answer' target='_blank'>link</a>";
-      }
+      
       $answer = str_replace("\n", "<br>", $answer);
       $output .= "
         <tr>
-          <td>$qname</td>
-          <td>$answer</td>
+          <td valign='top'>$qname</td>
+          <td class='wordwrap'>$answer</td>
         </tr>
       ";
     }
@@ -105,16 +112,15 @@ function getSubmissionCard($teamId, $teamQuestions) {
 
 <html>
   <head>
-      <title>Game Jam</title>
-      <link rel = "stylesheet" type = "text/css" href = "../../index.css" />
-      <!-- <link rel = "stylesheet" type = "text/css" href = "carasoule.css" /> -->
-      <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    </head>
+    <title>Game Jam</title>
+    <link rel = "stylesheet" type = "text/css" href = "../../index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  </head>
   <body>
     <?php include($nav); ?>
     <div class="header flex_col">
-      <span class="heading"><strong>GAME JAM: FALL 2019</strong></span>
-      <!-- <span class="detailsheading">OCT 31 - NOV 2.</span> -->
+      <span class="heading"><strong>GAME&nbsp;JAM: SPRING&nbsp;2020</strong></span>
+      <span class="detailsheading">MAR 12 - 14</span>
     </div>
     <div class="section flex_col">
       <span class="title"><strong>Teams!</strong></span>

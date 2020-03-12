@@ -150,7 +150,7 @@ li > a {
 }
 
 .teamregistration {
-  margin-top: 10%;
+  margin-top: 40px;
   Width: 700px;
   /* height: 500px; */
   background-color: var(--tercolor);
@@ -344,6 +344,8 @@ input {
   /* margin-left: 100px; */
   font-size: 75px;
   color: var(--tercolor);
+  text-align: center;
+  padding: 0 20px;
 }
 
 .headingS125 {
@@ -422,8 +424,12 @@ input {
 .teamcard {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-bottom: 40px;
   width: 600px;;
+}
+
+.teamcard:first-of-type {
+  margin-top: 40px;
 }
 
 .teamimg {
@@ -432,11 +438,22 @@ input {
 }
 
 .teaminfo {
-  size: 20px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   color: var(--primcolor);
   margin-left: 5%;
+  /* overflow: scroll; */
+  
+}
+
+.teaminfo > table {
+  table-layout: fixed;
+}
+
+td.wordwrap {
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .team_details {

@@ -18,7 +18,7 @@ session_start();
       include("nav.php");
     ?>
     <div class="cover flex_col">
-      <span class="heading"><strong>GAME JAM: SPRING 2020</strong></span>
+      <div class="heading"><strong>GAME&nbsp;JAM: SPRING&nbsp;2020</strong></div>
       <span class="detailsheading ">March 12 - 14</span>
       <?php
         if($time > $tsBegin && $time < $tsEnd) {
