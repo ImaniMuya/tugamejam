@@ -6,10 +6,9 @@
 
 
 $isloggedin = false;
-print_r($_COOKIE);
-var_dump($conn);
+// print_r($_COOKIE);
 
-if(isset($_COOKIE['team'])){ 
+if(isset($_COOKIE['team'])){
   $teamId = $_COOKIE['team'];
   $secret = $_COOKIE['secret'];
 
@@ -21,7 +20,6 @@ if(isset($_COOKIE['team'])){
 
   if ($team) {
     $isloggedin = true;
-    print "we logged in";
 
     $teamName = $team["name"];
     $teamId = $team["team_id"];
@@ -31,10 +29,10 @@ if(isset($_COOKIE['team'])){
     // setcookie('team', '', time() - 3600);
     // setcookie('secret', '', time() - 3600);
     
-    // header("Location: /~gamejamdev/wip");
     
     // toast message?
   }
+  
 }
 
 ?>

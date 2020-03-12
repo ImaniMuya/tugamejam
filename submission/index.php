@@ -1,8 +1,12 @@
 <?php
 session_start();
 include("../include.php");
-// $conn = new PDO($dbs);
 include("../checklogin.php");
+
+if (!$isloggedin) {
+  $_SESSION["snackbar"] = "Please log in and try that again.";
+  header("Location: /~gamejamdev/wip");
+}
 
 if ($_POST) {
   foreach($_POST as $qid => $ans) {
@@ -75,10 +79,10 @@ $sql->execute();
 $submQuestions = $sql->fetchAll();
 
 $sql = "SELECT *
-        FROM people WHERE team_id = $teamId";
+        FROM teams WHERE team_id = $teamId";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$members = $stmt->fetchAll();
+$teamName = $stmt->fetchAll();
 ?>
 
 <html>
@@ -98,7 +102,7 @@ include("../nav.php");
 </div>
 <div class="flex_col">
   <div class="title flex_col pt50">
-    Submission for <?php print $teamName; ?>
+    Submission for <?php print $teamName[0]; ?>
   </div>
   <form method="POST" id="submForm" class="flex_col" enctype="multipart/form-data">
     <table>

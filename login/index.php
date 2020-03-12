@@ -1,8 +1,8 @@
 <?php
 include("../include.php");
-?>
 
-<?php 
+session_start();
+
 $conn = new PDO($dbs);
 
 $team = $_GET['team'];
@@ -21,6 +21,7 @@ if ($validteam) {
   setcookie('secret',$secret,$expir,'/~gamejamdev/') or die('unable to create cookie');
   print_r($_COOKIE["team"]);
   print_r($_COOKIE["secret"]);
+  $_SESSION["snackbar"] = "Successfully logged in!";
 } else {
   die('invalid team');
 }

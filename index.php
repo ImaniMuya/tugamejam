@@ -1,8 +1,10 @@
 <!-- Home -->
-<?php include("timecodes.php"); ?>
-<?php $conn = new PDO('sqlite:dbs/s2020.db'); //special because of placement on site?> 
-<?php include("checklogin/index.php"); ?>
-
+<?php
+include("timecodes.php");
+$conn = new PDO('sqlite:dbs/s2020.db'); //special because of placement on site
+include("checklogin.php");
+session_start();
+?>
 
 <html>
   <head>
@@ -11,7 +13,10 @@
       <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   </head>
   <body>
-    <?php include("nav.php"); ?>
+    <?php
+      include("snackbar.php");
+      include("nav.php");
+    ?>
     <div class="cover flex_col">
       <span class="heading"><strong>GAME JAM: SPRING 2020</strong></span>
       <span class="detailsheading ">March 12 - 14</span>
@@ -47,7 +52,6 @@
     </div>
   </body>
 </html>
-
 <script>
  function togglenav() {
    document.getElementById('navcol').classList.toggle('tucked');

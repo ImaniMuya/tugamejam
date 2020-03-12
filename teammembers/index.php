@@ -1,10 +1,15 @@
 <!-- Team Members -->
-<?php include("../include.php"); ?>
+<?php include("../include.php");
 
-<?php
+session_start();
 
 // $conn = new PDO($dbs);
-include("../checklogin/index.php");
+include("../checklogin.php");
+
+if (!$isloggedin) {
+  $_SESSION["snackbar"] = "Please log in and try that again.";
+  header("Location: /~gamejamdev/wip");
+}
 
 if ($_POST) {
   if ($_POST["memberId"]) { //update member
@@ -29,9 +34,9 @@ if ($_POST) {
     // $sql->execute();
     if ($sql->execute()) {
       $_SESSION["snackbar"] = "Member Added";
-    } 
+    }
     
-  } 
+  }
   if ($_POST["sendMail"]) {
     $msg = "You joined team".$teamName."! click this link! https://cse.taylor.edu/~gamejamdev/login.php?team=".$teamId."&secret=".$secret;
     $msg = wordwrap($msg,70);

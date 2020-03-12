@@ -19,13 +19,13 @@
         <div ><img class="winnerpic" src="../images/thirdplace.jpg"/></div>
       </div>
       <div class="sectiontext">
-      </br>
+      <br/>
         <p>Congratulations to the winning teams!</p>
         <p>1. <strong>Bad Guy Simulator: The Heist</strong> by Edric Yu, Ryan Jones, Noah Lindsey (:(){ :|: & };:)</p>
         <p>2. <strong>Gone Rogue</strong> by Zachary Winters and Connor Salter (MooBar)</p>
         <p>3. <strong>Mech Heist</strong> by David Nurkkala (#1 Victory Royale)</p>
-      </br>
-      </br>
+      <br/>
+      <br/>
         <p>Superlative Awards go to:</p>
         <p>Best Writing and Best Art Awards: <strong>Man in the Van</strong></p>
         <p class="tabbed">by Luke Brom, Tim Ours, Imani Muya, Caitlin Gaff (ILTC...Do you?)</p>
