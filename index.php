@@ -17,7 +17,6 @@
       <span class="detailsheading ">March 12 - 14</span>
       <?php
         if($time > $tsBegin && $time < $tsEnd) {
-          print "hello: $isloggedin";
           if($isloggedin){
             print "<span class='detailsheading' ><a href='teammembers'>Go to team page</a></span>";
           } else {

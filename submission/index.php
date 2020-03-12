@@ -1,6 +1,7 @@
 <?php
 session_start();
-$conn = new PDO('sqlite:../../test.db');
+include("../include.php");
+$conn = new PDO($dbs);
 include("../checklogin.php");
 
 if ($_POST) {
@@ -72,6 +73,12 @@ $sql = $conn->prepare("SELECT q.question_id, q.question, q.question_type, a.answ
                        USING(question_id)");
 $sql->execute();
 $submQuestions = $sql->fetchAll();
+
+$sql = "SELECT *
+        FROM people WHERE team_id = $teamId";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$members = $stmt->fetchAll();
 ?>
 
 <html>

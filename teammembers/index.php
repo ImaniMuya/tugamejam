@@ -63,7 +63,7 @@ $members = $stmt->fetchAll();
 </div>
 
 <!-- <div class="right-align"><a href="/~gamejamdev/vote" class="blue">Vote</a></div> -->
-<div class="right-align"><a href="/~gamejamdev/submission" class="blue">Submission</a></div>
+<div class="right-align"><a href="/~gamejamdev/wip/submission" class="blue">Submission</a></div>
 <div class="flex_col">
   <form method="POST" id="memberForm" class="teamregistration flex_col">
     <div class="formheader flex_col">Team Members</div>

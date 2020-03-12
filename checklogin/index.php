@@ -1,14 +1,11 @@
-<?php 
-print "checklogin begin";
-?>
+
 
 <?php
 //should have $conn already.
 // if (!$conn) $conn = new PDO($dbs); //don't rely on this
 
 $isloggedin = false;
-var_dump($conn);
-print_r($_COOKIE);
+// print_r($_COOKIE);
 
 if(isset($_COOKIE['team'])){ 
   $teamId = $_COOKIE['team'];
@@ -22,7 +19,7 @@ if(isset($_COOKIE['team'])){
 
   if ($team) {
     $isloggedin = true;
-    print "mow we loggedin? $isloggedin";
+
     $teamName = $team["name"];
     $teamId = $team["team_id"];
     $secret = $team["the_secret"];
