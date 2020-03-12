@@ -35,6 +35,5 @@
  function togglenav() {                          
    document.getElementById('navcol').classList.toggle('tucked');
    document.getElementById('navicon').classList.toggle('tucked')
-                        
 }
 </script>

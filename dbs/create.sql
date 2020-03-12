@@ -51,3 +51,11 @@ CREATE TABLE subm_answers (
 -- ("How To Play", "textarea"),
 -- ("Submission zip", "file"),
 -- ("Game URL", "text");
+
+-- INSERT INTO themes (theme) 
+-- VALUES
+-- ("theme one"),
+-- ("theme two"),
+-- ("theme three"),
+-- ("theme four"),
+-- ("theme five");

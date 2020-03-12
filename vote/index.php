@@ -6,10 +6,10 @@ include("../checklogin.php");
 
 include('../timecodes.php');
 session_start();
-if (getGameState()!= 2) {
-  $_SESSION["snackbar"] = "Theme voting has not begun. Voting starts at $tsVote.";
-  header("Location: /~gamejamdev/wip");
-}
+// if (getGameState()!= 2) {
+//   $_SESSION["snackbar"] = "Theme voting has not begun. Voting starts at $tsVote.";
+//   header("Location: /~gamejamdev/wip");
+// }
 
 if ($_POST) {
   $sql = $conn->prepare("INSERT OR REPLACE INTO 
@@ -22,8 +22,8 @@ if ($_POST) {
   $sql->bindParam(':theme4_id',$_POST['theme4']);
   $sql->bindParam(':theme5_id',$_POST['theme5']);
   if ($sql->execute()) {
-    // $_SESSION["snackbar"] = "Vote Cast";
-    print "<script>alert('Vote cast.');</script>";
+    $_SESSION["snackbar"] = "Vote Cast!";
+    // print "<script>alert('Vote cast.');</script>";
   }
 }
 
@@ -52,7 +52,10 @@ foreach ($themeResults as $temp) {
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-<?php include("../nav.php"); ?>
+<?php
+  include("../nav.php");
+  include("../snackbar.php");
+?>
 <div class="header">
   <span class="heading"><strong>CAST YOUR VOTES!</strong></span>
 </div>
@@ -72,7 +75,7 @@ foreach ($themeResults as $temp) {
         $name = $themes[$id];
         print "<li class='choice draggable'><input type='hidden' value='$id'>"; 
         print $name;
-        print "</li>";
+        print "</li>\r\n";
       }
     } else {
       foreach($themeResults as $themeResult) {
@@ -80,12 +83,11 @@ foreach ($themeResults as $temp) {
         $id = $themeResult['theme_id'];
         print "<li class='choice draggable'><input type='hidden' value='$id'>"; 
         print $name;
-        print "</li>";
+        print "</li>\r\n";
       }
     }
   ?>
-
-  <li id="dummyChoice"></li>
+  <li id="dummyChoice"></li> 
 </ul>
 
 <span class="submitbtn center" onclick="castVote()">Cast my Vote!</span>

@@ -1,17 +1,29 @@
 <html>
 
 <?php
-$conn = new PDO('sqlite:../test.db');
+$conn = new PDO('sqlite:./dbs/s2020.db');
 $stmt = $conn->prepare("SELECT * FROM votes");
 $stmt->execute();
 $voteresults = $stmt->fetchAll();
-// print out theme names not ids
+// TODO: print out theme names not ids
 $stmt = $conn->prepare("SELECT * FROM themes");
 $stmt->execute();
-$theme = $stmt->fetchAll();
+$themeresults = $stmt->fetchAll();
 
 $voteBuckets = array();
 $votesToWin = count($voteresults) * 0.6;
+
+//print theme dictionary
+$themedict = array(); //currently unused
+foreach ($themeresults as $themeresult) {
+  $name = $themeresult["theme"];
+  $theme_id = $themeresult["theme_id"];
+  $themedict[$theme_id] = $name;
+  print("<div>");
+  print("$theme_id: $name");
+  print("</div>");
+}
+print ("<br>");
 
 printVoteTable($voteresults);
 
@@ -44,19 +56,17 @@ function printVoteTable($voteresults) {
   print "</table>";
 }
 
-?>
-
-
-<?php
 foreach($voteresults as $vote) {
   $voteBuckets[$vote['theme1_id']]++;
   arsort($voteBuckets);
   $leadingThemeId = current(array_keys($voteBuckets));
   $losingThemeId = end(array_keys($voteBuckets));
 }
+var_dump($voteBuckets);
+print("<br><br>");
 
 do {
-  if ($voteBuckets[$leadingThemeId] == $voteBuckets[$losingThemeId]) {
+  if ($leadingThemeId == $losingThemeId) {
     print("It's a draw!");
     break;
   }
@@ -75,8 +85,9 @@ do {
   $leadingThemeId = current(array_keys($voteBuckets));
   $losingThemeId = end(array_keys($voteBuckets));
 
-  var_dump($voteBuckets);
   printVoteTable($voteresults);
+  var_dump($voteBuckets);
+  print("<br><br>");
 } while ($voteBuckets[$leadingThemeId] <= $votesToWin);
 
 $stmt = $conn->prepare("SELECT theme_id, theme FROM themes WHERE theme_id=$leadingThemeId");

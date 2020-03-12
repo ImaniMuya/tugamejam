@@ -465,7 +465,7 @@ td.wordwrap {
 }
 
 td {
-  padding-bottom: 1%;
+  padding-bottom: 5px;
 }
 
 td > a {
@@ -520,7 +520,7 @@ td > a {
   display: block;
   height: 30px;
   width: 250px;
-  padding: 1%;
+  padding: 5px;
   /* color: white; */
   background-color: #ccc;
   text-align: center;
@@ -549,10 +549,8 @@ td > a {
 #dummyChoice {
   display: block;
   height: 10px;
-  width: 300px;
   padding: 5px;
   border-top: 2px solid transparent;
-  text-align: center;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
