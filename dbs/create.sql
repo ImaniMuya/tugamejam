@@ -40,3 +40,14 @@ CREATE TABLE subm_answers (
     FOREIGN KEY(question_id) REFERENCES subm_questions(question_id),
     FOREIGN KEY(team_id) REFERENCES teams(team_id)
 );
+
+-- INSERT INTO subm_questions (question, question_type) 
+-- VALUES
+-- ("Name", "text"),
+-- ("Main Picture", "image"),
+-- ("Picture 1", "image"),
+-- ("Picture 2", "image"),
+-- ("Description", "textarea"),
+-- ("How To Play", "textarea"),
+-- ("Submission zip", "file"),
+-- ("Game URL", "text");

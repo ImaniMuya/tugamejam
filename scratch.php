@@ -1,4 +1,9 @@
-<?php phpinfo();
+<?php 
+$_SESSION["qwerty"] = "Testtttaasdf.";
+var_dump($_SESSION["qwerty"]);
+var_dump($_SESSION["snackbar"]);
+//phpinfo();
+
 // $conn = new PDO('sqlite:../test.db');
 
 // $sql = "SELECT team_id, answer, question_id, question, question_type

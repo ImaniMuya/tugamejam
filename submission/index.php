@@ -79,10 +79,10 @@ $sql->execute();
 $submQuestions = $sql->fetchAll();
 
 $sql = "SELECT *
-        FROM teams WHERE team_id = $teamId";
+        FROM people WHERE team_id = $teamId";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$teamName = $stmt->fetchAll();
+$members = $stmt->fetchAll();
 ?>
 
 <html>
@@ -102,7 +102,7 @@ include("../nav.php");
 </div>
 <div class="flex_col">
   <div class="title flex_col pt50">
-    Submission for <?php print $teamName[0]; ?>
+    Submission for <?php print $teamName; ?>
   </div>
   <form method="POST" id="submForm" class="flex_col" enctype="multipart/form-data">
     <table>
